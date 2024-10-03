@@ -2,6 +2,10 @@
 
 public class Game1 : Game
 {
+    private int windowWidth;
+    private int windowHeight;
+    private int scale;
+
     private SpriteBatch _spriteBatch;
     private GameManager _gameManager;
     private RenderTarget2D renderTarget;
@@ -16,10 +20,14 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        Globals.WindowSize = new(128, 64);
+        windowWidth = 1366;
+        windowHeight = 768;
+        scale = 4;
 
-        Globals.Graphics.PreferredBackBufferWidth = Globals.WindowSize.X * 4;
-        Globals.Graphics.PreferredBackBufferHeight = Globals.WindowSize.Y * 4;
+        Globals.WindowSize = new(windowWidth / 4, windowHeight / 4 );
+
+        Globals.Graphics.PreferredBackBufferWidth = Globals.WindowSize.X * scale;
+        Globals.Graphics.PreferredBackBufferHeight = Globals.WindowSize.Y * scale;
 
         Globals.Graphics.ApplyChanges();
 
@@ -59,14 +67,14 @@ public class Game1 : Game
         GraphicsDevice.SetRenderTarget(renderTarget);
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        Globals.SpriteBatch.Begin();
+        Globals.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
         _gameManager.Draw(gameTime);
         Globals.SpriteBatch.End();
 
         GraphicsDevice.SetRenderTarget(null);
         GraphicsDevice.Clear(Color.Black);
 
-        Globals.SpriteBatch.Begin();
+        Globals.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
         Globals.SpriteBatch.Draw(
             renderTarget,
             new Rectangle(0, 0, Globals.Graphics.PreferredBackBufferWidth, Globals.Graphics.PreferredBackBufferHeight),
