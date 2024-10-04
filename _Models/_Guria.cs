@@ -15,9 +15,9 @@ public class Guria
 
     public Guria()
     {
-        guriaSpriteSheet = Globals.Content.Load<Texture2D>("char/guria");
+        guriaSpriteSheet = Globals.Content.Load<Texture2D>("sprites/guria");
         guriaPosition = new Vector2(Globals.WindowSize.X / 2, Globals.WindowSize.Y / 2);
-        guriaSpeed = 80f;
+        guriaSpeed = 50f;
 
         //frameSheet
         frameWidth = 8;
@@ -25,7 +25,7 @@ public class Guria
         currentFrame = 0;
         direction = 0;
         timer = 0f;
-        interval = 200f;
+        interval = 150f;
     }
 
     public void Update(GameTime gameTime)
@@ -60,6 +60,16 @@ public class Guria
             direction = 2;
         }
 
+        if (kstate.IsKeyDown(Keys.D) && kstate.IsKeyDown(Keys.W))
+        {
+            direction = 4;
+        }
+
+        if (kstate.IsKeyDown(Keys.A) && kstate.IsKeyDown(Keys.W))
+        {
+            direction = 5;
+        }
+
         if (directionVector != Vector2.Zero)
         {
             directionVector.Normalize();
@@ -70,7 +80,7 @@ public class Guria
             if (timer > interval)
             {
                 currentFrame++;
-                if (currentFrame > 2) // maximo de 3 frames por linha
+                if (currentFrame > 3) // maximo de 3 frames por linha
                     currentFrame = 0;
 
                 timer = 0f;
@@ -78,7 +88,7 @@ public class Guria
         }
         else
         {
-            currentFrame = 0;
+            currentFrame = 3; // parado
         }
     }
 

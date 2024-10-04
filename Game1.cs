@@ -24,7 +24,7 @@ public class Game1 : Game
         windowHeight = 768;
         scale = 4;
 
-        Globals.WindowSize = new(windowWidth / 4, windowHeight / 4 );
+        Globals.WindowSize = new(windowWidth / scale, windowHeight / scale );
 
         Globals.Graphics.PreferredBackBufferWidth = Globals.WindowSize.X * scale;
         Globals.Graphics.PreferredBackBufferHeight = Globals.WindowSize.Y * scale;
