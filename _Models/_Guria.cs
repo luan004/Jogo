@@ -81,8 +81,9 @@ public class Guria
             {
                 currentFrame++;
                 if (currentFrame > 3) // maximo de 3 frames por linha
+                {
                     currentFrame = 0;
-
+                }
                 timer = 0f;
             }
         }
