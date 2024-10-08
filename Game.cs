@@ -2,14 +2,9 @@
 
 public class Game1 : Game
 {
-    private int windowWidth;
-    private int windowHeight;
-    private int scale;
-
     private SpriteBatch _spriteBatch;
     private GameManager _gameManager;
     private RenderTarget2D renderTarget;
-    private Vector2 scaleFactor;
 
     public Game1()
     {
@@ -20,14 +15,11 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        windowWidth = 1366;
-        windowHeight = 768;
-        scale = 4;
+        SettingsManager settingsManager = new();
 
-        Globals.WindowSize = new(windowWidth / scale, windowHeight / scale );
-
-        Globals.Graphics.PreferredBackBufferWidth = Globals.WindowSize.X * scale;
-        Globals.Graphics.PreferredBackBufferHeight = Globals.WindowSize.Y * scale;
+        Globals.WindowSize = new(settingsManager.WindowWidth / settingsManager.Scale, settingsManager.WindowHeight / settingsManager.Scale );
+        Globals.Graphics.PreferredBackBufferWidth = Globals.WindowSize.X * settingsManager.Scale;
+        Globals.Graphics.PreferredBackBufferHeight = Globals.WindowSize.Y * settingsManager.Scale;
 
         Globals.Graphics.ApplyChanges();
 
@@ -36,8 +28,6 @@ public class Game1 : Game
             Globals.WindowSize.X,
             Globals.WindowSize.Y
             );
-
-        scaleFactor = new Vector2(2f, 2f);
 
         Globals.Content = Content;
         _gameManager = new();
