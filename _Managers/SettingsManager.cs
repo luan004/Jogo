@@ -10,50 +10,66 @@ public class SettingsManager
 
     public int WindowWidth { get; set; }
     public int WindowHeight { get; set; }
-    public int Scale { get; set; }
+    public int WindowScale { get; set; }
+    public bool WindowIsFullscreen { get; set; }
 
     public SettingsManager()
     {
         if (File.Exists(settingsPath))
         {
-            LoadSettings();
+            LoadSettingsFile();
         }
         else
         {
-            CreateSettings();
-            LoadSettings();
+            CreateSettingsFile();
+            LoadSettingsFile();
         }
     }
 
-    public void Update(GameTime gameTime)
-    {
-        //
-    }
-
-    public void Draw(GameTime gameTime)
-    {
-        //
-    }
-
-    private void LoadSettings()
+    private void LoadSettingsFile()
     {
         var settings = JsonSerializer.Deserialize<JsonElement>(File.ReadAllText("settings.json"));
 
         var window = settings.GetProperty("window");
 
-        WindowWidth = window.GetProperty("width").GetInt32();
-        WindowHeight = window.GetProperty("height").GetInt32();
-        Scale = window.GetProperty("scale").GetInt32();
+        try
+        {
+            WindowWidth = window.GetProperty("width").GetInt32();
+            WindowHeight = window.GetProperty("height").GetInt32();
+            WindowScale = window.GetProperty("scale").GetInt32();
+            WindowIsFullscreen = window.GetProperty("fullscreen").GetBoolean();
+        }
+        catch (Exception)
+        {
+            CreateSettingsFile();
+            LoadSettingsFile();
+        }
     }
 
-    private void CreateSettings()
+    private void CreateSettingsFile()
     {
         var settings = new
         {
             window = new {
-                width = 1366,
-                height = 768,
-                scale = 4
+                width = 1280,
+                height = 720,
+                scale = 4,
+                fullscreen = false
+            }
+        };
+
+        File.WriteAllText("settings.json", JsonSerializer.Serialize(settings));
+    }
+
+    public void SaveSettingsFile()
+    {
+        var settings = new
+        {
+            window = new {
+                width = WindowWidth,
+                height = WindowHeight,
+                scale = WindowScale,
+                fullscreen = WindowIsFullscreen
             }
         };
 

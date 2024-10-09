@@ -9,6 +9,7 @@ public static class Globals
     public static SpriteBatch SpriteBatch { get; set; }
     public static Point WindowSize { get; set; }
     public static GraphicsDeviceManager Graphics { get; set; }
+    public static SpriteFont Font { get; set; }
 
     public static void Update(GameTime gt)
     {

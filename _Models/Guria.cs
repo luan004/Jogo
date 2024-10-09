@@ -111,5 +111,5 @@ public class Guria
             SpriteEffects.None,
             0f
         );
-    }
+    }   
 }

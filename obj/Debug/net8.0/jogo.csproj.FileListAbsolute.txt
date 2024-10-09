@@ -26,3 +26,4 @@ C:\Users\luang\OneDrive\Documentos\Projetos\jogo\obj\Debug\net8.0\ref\jogo.dll
 C:\Users\luang\OneDrive\Documentos\Projetos\jogo\bin\Debug\net8.0\Content\ball.xnb
 C:\Users\luang\OneDrive\Documentos\Projetos\jogo\obj\Debug\net8.0\jogo.sourcelink.json
 c:\Users\luang\OneDrive\Documentos\Projetos\jogo\bin\Debug\net8.0\Content\sprites\guria.xnb
+c:\Users\luang\OneDrive\Documentos\Projetos\jogo\bin\Debug\net8.0\Content\sprites\tiles.xnb

@@ -2,13 +2,13 @@
 
 public class Game1 : Game
 {
-    private SpriteBatch _spriteBatch;
     private GameManager _gameManager;
     private RenderTarget2D renderTarget;
 
     public Game1()
     {
         Globals.Graphics = new GraphicsDeviceManager(this);
+        Globals.Font = Content.Load<SpriteFont>("font");
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
     }
@@ -17,9 +17,11 @@ public class Game1 : Game
     {
         SettingsManager settingsManager = new();
 
-        Globals.WindowSize = new(settingsManager.WindowWidth / settingsManager.Scale, settingsManager.WindowHeight / settingsManager.Scale );
-        Globals.Graphics.PreferredBackBufferWidth = Globals.WindowSize.X * settingsManager.Scale;
-        Globals.Graphics.PreferredBackBufferHeight = Globals.WindowSize.Y * settingsManager.Scale;
+        Globals.WindowSize = new(settingsManager.WindowWidth / settingsManager.WindowScale, settingsManager.WindowHeight / settingsManager.WindowScale );
+        Globals.Graphics.PreferredBackBufferWidth = Globals.WindowSize.X * settingsManager.WindowScale;
+        Globals.Graphics.PreferredBackBufferHeight = Globals.WindowSize.Y * settingsManager.WindowScale;
+
+        Globals.Graphics.IsFullScreen = settingsManager.WindowIsFullscreen;
 
         Globals.Graphics.ApplyChanges();
 
@@ -30,15 +32,14 @@ public class Game1 : Game
             );
 
         Globals.Content = Content;
-        _gameManager = new();
+        _gameManager = new(settingsManager);
 
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
-        _spriteBatch = new SpriteBatch(GraphicsDevice);
-        Globals.SpriteBatch = _spriteBatch;
+        Globals.SpriteBatch = new SpriteBatch(GraphicsDevice);
     }
 
     protected override void Update(GameTime gameTime)
@@ -70,8 +71,8 @@ public class Game1 : Game
             new Rectangle(0, 0, Globals.Graphics.PreferredBackBufferWidth, Globals.Graphics.PreferredBackBufferHeight),
             Color.White
         );
-        Globals.SpriteBatch.End();
 
+        Globals.SpriteBatch.End();
         base.Draw(gameTime);
     }
 }
