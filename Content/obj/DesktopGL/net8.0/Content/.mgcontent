@@ -4,8 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>c:/Users/luang/OneDrive/Documentos/Projetos/jogo/Content/sprites/guria.png</File>
-    <File>c:/Users/luang/OneDrive/Documentos/Projetos/jogo/Content/sprites/tiles.png</File>
+    <File>C:/Users/luang/OneDrive/Documentos/Projetos/jogo/Content/sprites/guria.png</File>
+    <File>C:/Users/luang/OneDrive/Documentos/Projetos/jogo/Content/sprites/tiles.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

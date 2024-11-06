@@ -8,7 +8,6 @@ public class Game1 : Game
     public Game1()
     {
         Globals.Graphics = new GraphicsDeviceManager(this);
-        Globals.Font = Content.Load<SpriteFont>("font");
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\luang\\OneDrive\\Documentos\\Projetos\\jogo\\jogo.csproj": {}
+    "C:\\Users\\luang\\OneDrive\\Documentos\\Projetos\\jogo\\jogo.csproj": {}
   },
   "projects": {
-    "c:\\Users\\luang\\OneDrive\\Documentos\\Projetos\\jogo\\jogo.csproj": {
+    "C:\\Users\\luang\\OneDrive\\Documentos\\Projetos\\jogo\\jogo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\luang\\OneDrive\\Documentos\\Projetos\\jogo\\jogo.csproj",
+        "projectUniqueName": "C:\\Users\\luang\\OneDrive\\Documentos\\Projetos\\jogo\\jogo.csproj",
         "projectName": "jogo",
-        "projectPath": "c:\\Users\\luang\\OneDrive\\Documentos\\Projetos\\jogo\\jogo.csproj",
+        "projectPath": "C:\\Users\\luang\\OneDrive\\Documentos\\Projetos\\jogo\\jogo.csproj",
         "packagesPath": "C:\\Users\\luang\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\luang\\OneDrive\\Documentos\\Projetos\\jogo\\obj\\",
+        "outputPath": "C:\\Users\\luang\\OneDrive\\Documentos\\Projetos\\jogo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\luang\\AppData\\Roaming\\NuGet\\NuGet.Config"
